@@ -21,10 +21,10 @@ int main(void)
     while (1) 
     {
 		PORTD |= (1<<buzzer); 
-		//_delay_us(900);
+		_delay_us(900);
 		
-		//PORTD &= ~(1<<buzzer);
-		//_delay_us(900);
+		PORTD &= ~(1<<buzzer);
+		_delay_us(900);
 
     }
 	return 0;
