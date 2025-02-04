@@ -60,6 +60,12 @@ int main(void)
 		uint16_t distance = get_distance(); //measures the duration of the echo pulse and calculates the distance in centimetres
 	    
 	    if (distance < 50) { // If obstacle is closer than 50 cm, send a signal to buzzer 
+
+		    PORTD |= (1<<buzzer); 
+		_delay_us(900);
+		
+		PORTD &= ~(1<<buzzer);
+		_delay_us(900);
 		
 	
 		}	
