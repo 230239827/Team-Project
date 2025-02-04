@@ -68,8 +68,8 @@ int main(void)
 		_delay_us(900);
 		
 	
-		}	
-		} else{ //do nothing, allow sensor to continue as normal
+		} else {	
+		 //do nothing, allow sensor to continue as normal
 			
 		}
 	   
