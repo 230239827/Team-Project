@@ -51,8 +51,8 @@ uint16_t get_distance() {
 int main(void)
 {
 	
-    DDRD |= (1<<buzzer);
-    PORTD &= ~(1<<buzzer);
+    DDRD |= (1<<BUZZER_PIN);
+    PORTD &= ~(1<<BUZZER_PIN);
 	
     init_ports();
     while (1) 
@@ -61,10 +61,10 @@ int main(void)
 	    
 	    if (distance < 50) { // If obstacle is closer than 50 cm, send a signal to buzzer 
 
-		PORTD |= (1<<buzzer); 
+		PORTD |= (1<<BUZZER_PIN); 
 		_delay_us(900);
 		
-		PORTD &= ~(1<<buzzer);
+		PORTD &= ~(1<<BUZZER_PIN);
 		_delay_us(900);
 		
 	
