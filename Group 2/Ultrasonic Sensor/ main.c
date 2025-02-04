@@ -69,9 +69,7 @@ int main(void)
 		
 	
 		}	
-		}
-		
-		else{ //do nothing, allow sensor to continue as normal
+		} else{ //do nothing, allow sensor to continue as normal
 			
 		}
 	   
