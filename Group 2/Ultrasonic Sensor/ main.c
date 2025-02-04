@@ -50,6 +50,10 @@ uint16_t get_distance() {
 
 int main(void)
 {
+	
+	DDRD |= (1<<buzzer);
+	PORTD &= ~(1<<buzzer);
+	
     init_ports();
     while (1) 
     {        
