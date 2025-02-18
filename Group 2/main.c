@@ -15,6 +15,7 @@
 #define MOTOR1_PIN2 PA1  // Motor 1, Control Pin 2 (IN2)
 #define MOTOR2_PIN1 PA2  // Motor 2, Control Pin 1 (IN3)
 #define MOTOR2_PIN2 PA3  // Motor 2, Control Pin 2 (IN4)
+
 #define MOTOR3_PIN1 PB0 // Motor 3, Control Pin 1 (IN5)
 #define MOTOR3_PIN2 PB1 // Motor 3, Control Pin 2 (IN6)
 #define MOTOR4_PIN1 PB2 // Motor 4, Control Pin 1 (IN7)
@@ -62,6 +63,7 @@ void Move_Backward() {
 // Function to turn left
 void Turn_Left() {
 
+	//Left motors (Motor 1 and Motor 2): Move forward
 	PORTA |= (1 << MOTOR1_PIN1);
 	PORTA &= ~(1 << MOTOR1_PIN2);
 
@@ -76,6 +78,7 @@ void Turn_Left() {
 
 // Function to turn right
 void Turn_Right() {
+	
 	// Right motors (Motor 2 and Motor 4): Move forward
 	PORTA |= (1 << MOTOR2_PIN1);
 	PORTA &= ~(1 << MOTOR2_PIN2);
@@ -89,9 +92,10 @@ void Turn_Right() {
 }
 
 void Stop() {
+	 //Set all motors to stop 
 	 PORTA &= ~(1 << MOTOR1_PIN1) | (1 << MOTOR1_PIN2) | (1 << MOTOR2_PIN1) | (1 << MOTOR2_PIN2); 
 	 PORTB &= ~(1 << MOTOR3_PIN1) | (1 << MOTOR3_PIN2) | (1 << MOTOR4_PIN1) | (1 << MOTOR4_PIN2);
-	 OCR0A =0;
+	 OCR0A =0; 
 }
 
 void pwm()
