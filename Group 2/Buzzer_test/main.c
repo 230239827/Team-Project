@@ -8,23 +8,45 @@
 #define F_CPU 20E6
 #include <avr/io.h>
 #include <util/delay.h>
-
 #define buzzer PD3
+//#define UTX PD2
+
+void initial()
+{
+	DDRD |= 1<<buzzer; //| 1<<UTX;
+	PORTD &= ~(1<<buzzer);
+}
+
+void buttonOn()
+{
+	PORTD |= (1<<buzzer);
+	_delay_us(900);
+}
+
+void buttonOff()
+{
+	PORTD &= ~(1<<buzzer);
+	_delay_us(900);
+}
 
 int main(void)
 {
     /* Replace with your application code */
 	
-	DDRD |= (1<<buzzer);
-	PORTD &= ~(1<<buzzer);
+	initial();
 	
     while (1) 
     {
-		PORTD |= (1<<buzzer); 
-		_delay_us(900);
+		//PORTD |= 1<<UTX;
+		//_delay_us(10);
 		
-		PORTD &= ~(1<<buzzer);
-		_delay_us(900);
+		//PORTD &= ~(1<<UTX);
+		//_delay_ms(10);
+		
+		buttonOn();
+		
+		buttonOff();
+		
 
     }
 	return 0;
