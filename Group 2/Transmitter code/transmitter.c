@@ -35,10 +35,10 @@ int main(void)
 	//UART intialisation
 	UBRR0 = Baud_Register_Value;
 	UCSR0B = 1<<TXEN0 ;
-	UCSR0C = 1<<UCSZ01 | 1<< UCSZ00
+	UCSR0C = 1<<UCSZ01 | 1<< UCSZ00;
 	
 	//ADC initialisation
-	ADMUX |= (1<<REFS0)
+	ADMUX |= (1<<REFS0);
 	ADCSRA |= (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
 	
 	
