@@ -1,0 +1,23 @@
+#define F_CPU 20E6
+#include <avr/io.h>
+#include <util/delay.h>
+
+
+
+// defines the desired baud rate. the UL at the end tells the compiler to treat
+// the values as an unsigned long integer, which is 32-bits. This is needed
+// for the calculations that follows so the compiler doesnt default to 16-bits.
+static char recieve_data
+#define Baud_Rate 9600UL 
+#define Baud_Register_Value ((F_CPU/(16*Baud_Rate)) - 1)
+int main(void)
+{
+  	UBRR0 = Baud_Register_Value; //sET UART's baud to 9600 with F_CPU = 20MHz
+	UCSR0B = 1<<RXEN0;
+    /* Replace with your application code */
+    while (1) 
+    {
+		recieve_data = UDR0 ; //transmit the character 1
+		_delay_ms(1000); //1 second delay
+    }
+}
