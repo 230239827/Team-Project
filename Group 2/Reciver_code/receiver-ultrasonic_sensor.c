@@ -15,7 +15,7 @@
 // Ultrasonic sensor pins
 #define TRIGGER_PIN PD4
 #define ECHO_PIN PD5
-#define BUZZER_PIN PD4
+#define BUZZER_PIN PD6
 
 // UART Configuration
 #define BAUD 9600
