@@ -13,8 +13,8 @@
 #define MOTOR4_PIN2 PB3
 
 // Ultrasonic sensor pins
-#define TRIGGER_PIN PD2
-#define ECHO_PIN PD3
+#define TRIGGER_PIN PD4
+#define ECHO_PIN PD5
 #define BUZZER_PIN PD4
 
 // UART Configuration
