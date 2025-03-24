@@ -166,6 +166,8 @@ int main(void) {
             PORTD |= (1 << BUZZER_PIN);  // Turn on buzzer
             _delay_ms(200);              // Beep for 200 ms
             PORTD &= ~(1 << BUZZER_PIN); // Turn off buzzer
+        } else if (distance < 15) {
+            Stop();
         } else {
             PORTD &= ~(1 << BUZZER_PIN); // Ensure buzzer is off
         }
