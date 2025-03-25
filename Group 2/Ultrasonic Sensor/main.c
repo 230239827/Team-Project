@@ -97,10 +97,10 @@ void Turn_Right() {
 }
 
 void Stop() {
-	PORTA &= ~(1 << MOTOR1_PIN1) | ~(1 << MOTOR1_PIN2);  // Stop Motor 1
-	PORTA &= ~(1 << MOTOR2_PIN1) | ~(1 << MOTOR2_PIN2);  // Stop Motor 2
-	PORTB &= ~(1 << MOTOR3_PIN1) | ~(1 << MOTOR3_PIN2);  // Stop Motor 3
-	PORTB &= ~(1 << MOTOR4_PIN1) | ~(1 << MOTOR4_PIN2);  // Stop Motor 4
+	PORTA &= ~((1 << MOTOR1_PIN1) | ~(1 << MOTOR1_PIN2));  // Stop Motor 1
+	PORTA &= ~((1 << MOTOR2_PIN1) | ~(1 << MOTOR2_PIN2));  // Stop Motor 2
+	PORTB &= ~((1 << MOTOR3_PIN1) | ~(1 << MOTOR3_PIN2));  // Stop Motor 3
+	PORTB &= ~((1 << MOTOR4_PIN1) | ~(1 << MOTOR4_PIN2));  // Stop Motor 4
 }
 
 // Ultrasonic sensor functions
