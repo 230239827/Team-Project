@@ -160,20 +160,20 @@ int main(void) {
 		Trigger();
 		_delay_us(10);
 		// Read Bluetooth command
-		//char command = UART_Receive();
+		char command = UART_Receive();
 
 		// Control motors based on command
-		//switch (command) {
-		//case 'F': Move_Forward(); break;
-		//case 'B': Move_Backward(); break;
-		//case 'L': Turn_Left(); break;
-		//case 'R': Turn_Right(); break;
-		//case 'S': Stop(); break;
-		//default: Stop();  // Handle invalid commands
-		//}
+		switch (command) {
+		case 'F': Move_Forward(); break;
+		case 'B': Move_Backward(); break;
+		case 'L': Turn_Left(); break;
+		case 'R': Turn_Right(); break;
+		case 'S': Stop(); break;
+		default: Stop();  // Handle invalid commands
+		}
 
 		// Measure distance using ultrasonic sensor
-		// uint16_t distance = MeasureDistance();
+		uint16_t distance = MeasureDistance();
 
 		duration = 0;
 		while (!(PIND & (1 << ECHO_PIN)))
@@ -209,3 +209,4 @@ int main(void) {
 		_delay_ms(100);  // Small delay for stability
 	}
 }
+
