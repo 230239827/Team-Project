@@ -97,10 +97,10 @@ void Turn_Right() {
 }
 
 void Stop() {
-	PORTA &= ~(1 << MOTOR1_PIN1) & ~(1 << MOTOR1_PIN2);  // Stop Motor 1
-	PORTA &= ~(1 << MOTOR2_PIN1) & ~(1 << MOTOR2_PIN2);  // Stop Motor 2
-	PORTB &= ~(1 << MOTOR3_PIN1) & ~(1 << MOTOR3_PIN2);  // Stop Motor 3
-	PORTB &= ~(1 << MOTOR4_PIN1) & ~(1 << MOTOR4_PIN2);  // Stop Motor 4
+	PORTA &= ~(1 << MOTOR1_PIN1) | ~(1 << MOTOR1_PIN2);  // Stop Motor 1
+	PORTA &= ~(1 << MOTOR2_PIN1) | ~(1 << MOTOR2_PIN2);  // Stop Motor 2
+	PORTB &= ~(1 << MOTOR3_PIN1) | ~(1 << MOTOR3_PIN2);  // Stop Motor 3
+	PORTB &= ~(1 << MOTOR4_PIN1) | ~(1 << MOTOR4_PIN2);  // Stop Motor 4
 }
 
 // Ultrasonic sensor functions
@@ -142,14 +142,15 @@ int main(void) {
 	UART_Init(MYUBRR);
 
 	// Stop motors initially
-	Stop();
-
+	//Stop();
 	uint16_t duration = 0;
 	uint16_t distance = 0;
 
+	Move_Forward();
+
 	while (1) {
 
-		trigger();
+		Trigger();
 		_delay_us(10);
 		// Read Bluetooth command
 		//char command = UART_Receive();
@@ -195,7 +196,7 @@ int main(void) {
 		else 
 		{
 			PORTD &= ~(1 << BUZZER_PIN); // Ensure buzzer is off]
-			Move_Forward();
+			//Move_Forward();
 		}
 
 		_delay_ms(100);  // Small delay for stability
