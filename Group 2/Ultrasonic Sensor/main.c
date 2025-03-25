@@ -144,22 +144,41 @@ int main(void) {
 	// Stop motors initially
 	Stop();
 
+	uint16_t duration = 0;
+	uint16_t distance = 0;
+
 	while (1) {
+
+		trigger();
+		_delay_us(10);
 		// Read Bluetooth command
-		char command = UART_Receive();
+		//char command = UART_Receive();
 
 		// Control motors based on command
-		switch (command) {
-			case 'F': Move_Forward(); break;
-			case 'B': Move_Backward(); break;
-			case 'L': Turn_Left(); break;
-			case 'R': Turn_Right(); break;
-			case 'S': Stop(); break;
-			default: Stop();  // Handle invalid commands
-		}
+		//switch (command) {
+			//case 'F': Move_Forward(); break;
+			//case 'B': Move_Backward(); break;
+			//case 'L': Turn_Left(); break;
+			//case 'R': Turn_Right(); break;
+			//case 'S': Stop(); break;
+			//default: Stop();  // Handle invalid commands
+		//}
 
 		// Measure distance using ultrasonic sensor
-		uint16_t distance = MeasureDistance();
+		// uint16_t distance = MeasureDistance();
+
+		duration = 0;
+		while (!(PIND & (1 << ECHO_PIN)))
+		{
+		}
+		
+		while (PIND & (1 << ECHO_PIN))
+		{
+			_delay_us(1);
+			duration++;
+		}
+		
+		distance = (duration/58);
 
 		// Activate buzzer if obstacle is within 40 cm
 		if (distance < 40) {
